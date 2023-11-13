@@ -1,10 +1,8 @@
-<h1>
-    The list of tasks
-</h1>
+@extends('layouts.app')
 
-<div>
-    Hello Im a blade template!
-    {{-- @if (count($tasks)) --}}
+@section('title', 'The list of tasks')
+
+@section('content')
     @forelse ($tasks as $task)
         <div>
             <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a>
@@ -12,10 +10,5 @@
     @empty
         <div>There are no tasks!</div>
     @endforelse
-    {{-- @endif --}}
-</div>
-
-@isset($name)
-    <div>The name is: {{ $name }}</div>
-@endisset
+@endsection
 
